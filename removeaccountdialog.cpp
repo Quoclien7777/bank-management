@@ -1,12 +1,13 @@
 #include "removeaccountdialog.h"
 #include "ui_removeaccountdialog.h"
 
-RemoveAccountDialog::RemoveAccountDialog(BankManagement* bank, QWidget *parent)
+RemoveAccountDialog::RemoveAccountDialog(BankManagement *bank, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::RemoveAccountDialog)
     , bankRef(bank)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Xóa tài khoản theo ID");
 }
 
 RemoveAccountDialog::~RemoveAccountDialog()

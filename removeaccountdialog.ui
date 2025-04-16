@@ -63,7 +63,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Result </string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignmentFlag::AlignCenter</set>

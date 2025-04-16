@@ -13,12 +13,12 @@ class ShowAccountDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit ShowAccountDialog(BankManagement* bank, QWidget *parent = nullptr);
+    explicit ShowAccountDialog(BankManagement *bank, QWidget *parent = nullptr);
     ~ShowAccountDialog();
 
 private:
     Ui::ShowAccountDialog *ui;
-    BankManagement* bankRef;
+    BankManagement *bankRef;
 };
 
 #endif // SHOWACCOUNTDIALOG_H

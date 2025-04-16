@@ -28,7 +28,7 @@
       <item>
        <widget class="QLabel" name="label_5">
         <property name="text">
-         <string> Interest Rate/ Overdraft Fee</string>
+         <string>Lãi suất/ Phí chuyển </string>
         </property>
        </widget>
       </item>
@@ -42,7 +42,7 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>ID Account'</string>
+         <string>Số tài khoản</string>
         </property>
        </widget>
       </item>
@@ -56,7 +56,7 @@
       <item>
        <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>Name</string>
+         <string>Tên</string>
         </property>
        </widget>
       </item>
@@ -70,7 +70,7 @@
       <item>
        <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>Balance</string>
+         <string>Số dư ban đầu</string>
         </property>
        </widget>
       </item>
@@ -84,7 +84,7 @@
       <item>
        <widget class="QLabel" name="label_4">
         <property name="text">
-         <string>Type</string>
+         <string>Loại tài khoản</string>
         </property>
        </widget>
       </item>
@@ -98,7 +98,7 @@
       <item>
        <widget class="QPushButton" name="pushButton">
         <property name="text">
-         <string>Create</string>
+         <string>Tạo tài khoản mới</string>
         </property>
        </widget>
       </item>

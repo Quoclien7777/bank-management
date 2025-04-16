@@ -13,7 +13,7 @@ class DepositDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit DepositDialog(BankManagement* bank, QWidget *parent = nullptr);
+    explicit DepositDialog(BankManagement *bank, QWidget *parent = nullptr);
     ~DepositDialog();
 
 private slots:
@@ -21,7 +21,7 @@ private slots:
 
 private:
     Ui::DepositDialog *ui;
-    BankManagement* bank;
+    BankManagement *bank;
 };
 
 #endif // DEPOSITDIALOG_H

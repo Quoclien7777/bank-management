@@ -1,22 +1,23 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
-#include "addaccountdialog.h"
-#include "showaccountdialog.h"
-#include "removeaccountdialog.h"
-#include "depositdialog.h"
 #include <QDebug>
-#include <QMessageBox>
-#include <QFileDialog>
 #include <QFile>
-#include <saving.h>
-#include <checking.h>
-#include "withdrawdialog.h"
+#include <QFileDialog>
+#include <QMessageBox>
+#include "addaccountdialog.h"
+#include "depositdialog.h"
+#include "removeaccountdialog.h"
+#include "showaccountdialog.h"
 #include "transferdialog.h"
+#include "ui_mainwindow.h"
+#include "withdrawdialog.h"
+#include <checking.h>
+#include <saving.h>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Màn hình chính");
 }
 
 MainWindow::~MainWindow()
@@ -31,7 +32,7 @@ void MainWindow::on_addAccount_clicked()
     dialog->exec(); // chạy dialog
 }
 
-void MainWindow::onAccountCreated(Account* acc)
+void MainWindow::onAccountCreated(Account *acc)
 {
     bank.addAccount(acc);
     qDebug() << "Đã thêm tài khoản:" << acc->getInfo();
@@ -44,26 +45,29 @@ void MainWindow::on_showAccounts_clicked()
         qDebug() << acc->getInfo();
     }
 
-    ShowAccountDialog* dialog = new ShowAccountDialog(&bank, this);
+    ShowAccountDialog *dialog = new ShowAccountDialog(&bank, this);
     dialog->exec();
-
 }
 
 void MainWindow::on_removeAccount_clicked()
 {
-    RemoveAccountDialog* dialog = new RemoveAccountDialog(&bank, this);
+    RemoveAccountDialog *dialog = new RemoveAccountDialog(&bank, this);
     dialog->exec();
 }
-
 
 void MainWindow::on_saveToCSV_clicked()
 {
     QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, "Xác nhận", "Bạn có chắc chắn muốn lưu danh sách tài khoản vào CSV?",
-                                  QMessageBox::Yes|QMessageBox::No);
+    reply = QMessageBox::question(this,
+                                  "Xác nhận",
+                                  "Bạn có chắc chắn muốn lưu danh sách tài khoản vào CSV?",
+                                  QMessageBox::Yes | QMessageBox::No);
 
     if (reply == QMessageBox::Yes) {
-        QString filePath = QFileDialog::getSaveFileName(this, "Chọn nơi lưu file", "", "CSV Files (*.csv)");
+        QString filePath = QFileDialog::getSaveFileName(this,
+                                                        "Chọn nơi lưu file",
+                                                        "",
+                                                        "CSV Files (*.csv)");
         if (!filePath.isEmpty()) {
             bool success = bank.saveToCSV(filePath);
             if (success) {
@@ -75,12 +79,11 @@ void MainWindow::on_saveToCSV_clicked()
     }
 }
 
-
-
 void MainWindow::on_LoadFromCSV_clicked()
 {
     QString filePath = QFileDialog::getOpenFileName(this, "Chọn file CSV", "", "CSV Files (*.csv)");
-    if (filePath.isEmpty()) return;
+    if (filePath.isEmpty())
+        return;
 
     QFile file(filePath);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -109,7 +112,7 @@ void MainWindow::on_LoadFromCSV_clicked()
         QString type = parts[3].trimmed();
         double extra = parts[4].toDouble();
 
-        Account* acc = nullptr;
+        Account *acc = nullptr;
 
         if (type == "Saving") {
             acc = new Saving(name, number, balance, extra);
@@ -118,15 +121,13 @@ void MainWindow::on_LoadFromCSV_clicked()
         }
 
         if (acc) {
-            bank.addAccount(acc);  // thêm vào vector trong BankManagement
+            bank.addAccount(acc); // thêm vào vector trong BankManagement
             ++lineCount;
         } else {
             hasError = true;
         }
+    }
 }
-
-}
-
 
 void MainWindow::on_DepositButton_clicked()
 {
@@ -134,18 +135,14 @@ void MainWindow::on_DepositButton_clicked()
     dlg.exec();
 }
 
-
-
 void MainWindow::on_pushButtonWithdraw_clicked()
 {
     WithdrawDialog dialog(&bank, this);
     dialog.exec();
 }
 
-
 void MainWindow::on_pushButtonTransfer_clicked()
 {
     TransferDialog dialog(&bank, this);
     dialog.exec();
 }
-

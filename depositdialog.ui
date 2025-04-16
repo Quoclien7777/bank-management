@@ -28,7 +28,7 @@
       <item>
        <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>Enter the account number</string>
+         <string>Nhập số tài khoản</string>
         </property>
        </widget>
       </item>
@@ -42,7 +42,7 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Enter the money </string>
+         <string>Số tiền muốn nạp</string>
         </property>
        </widget>
       </item>
@@ -56,7 +56,7 @@
       <item>
        <widget class="QPushButton" name="pushButtonDeposit">
         <property name="text">
-         <string>Deposit</string>
+         <string>Nạp tiền</string>
         </property>
        </widget>
       </item>

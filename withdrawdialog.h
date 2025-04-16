@@ -13,7 +13,7 @@ class WithdrawDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit WithdrawDialog(BankManagement* bank, QWidget *parent = nullptr);
+    explicit WithdrawDialog(BankManagement *bank, QWidget *parent = nullptr);
     ~WithdrawDialog();
 
 private slots:
@@ -21,7 +21,7 @@ private slots:
 
 private:
     Ui::WithdrawDialog *ui;
-    BankManagement* bank;
+    BankManagement *bank;
 };
 
 #endif // WITHDRAWDIALOG_H

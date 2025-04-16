@@ -1,14 +1,15 @@
 #include "addaccountdialog.h"
-#include "ui_addaccountdialog.h"
-#include "saving.h"
-#include "checking.h"
 #include <QDebug>
+#include "checking.h"
+#include "saving.h"
+#include "ui_addaccountdialog.h"
 #include <bankmanagement.h>
 AddAccountDialog::AddAccountDialog(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::AddAccountDialog)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Thêm tài khoản mới");
     ui->comboBoxType->addItem("Saving");
     ui->comboBoxType->addItem("Checking");
 }
@@ -18,10 +19,7 @@ AddAccountDialog::~AddAccountDialog()
     delete ui;
 }
 
-void AddAccountDialog::on_buttonBox_accepted()
-{
-
-}
+void AddAccountDialog::on_buttonBox_accepted() {}
 
 void AddAccountDialog::on_pushButton_clicked()
 {
@@ -31,7 +29,7 @@ void AddAccountDialog::on_pushButton_clicked()
     QString type = ui->comboBoxType->currentText();
     double extra = ui->lineEditExtra->text().toDouble();
 
-    Account* acc = nullptr;
+    Account *acc = nullptr;
 
     if (type == "Saving") {
         acc = new Saving(name, number, balance, extra);
@@ -41,9 +39,7 @@ void AddAccountDialog::on_pushButton_clicked()
 
     if (acc) {
         emit accountCreated(acc); // gửi tín hiệu về MainWindow
-
     }
 
     accept(); // đóng dialog
 }
-

@@ -13,7 +13,7 @@ class TransferDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit TransferDialog(BankManagement* bank, QWidget *parent = nullptr);
+    explicit TransferDialog(BankManagement *bank, QWidget *parent = nullptr);
     ~TransferDialog();
 
 private slots:
@@ -21,7 +21,7 @@ private slots:
 
 private:
     Ui::TransferDialog *ui;
-    BankManagement* bank;
+    BankManagement *bank;
 };
 
 #endif // TRANSFERDIALOG_H

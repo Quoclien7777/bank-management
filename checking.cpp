@@ -1,35 +1,44 @@
 #include "checking.h"
 
 Checking::Checking(QString name, QString accountNumber, double balance, double overdraftFee)
-    : Account(name, accountNumber, balance), overdraftFee(overdraftFee) {}
+    : Account(name, accountNumber, balance)
+    , overdraftFee(overdraftFee)
+{}
 
-QString Checking::getType() const {
+QString Checking::getType() const
+{
     return "Checking";
 }
 
-QString Checking::getInfo() const {
+QString Checking::getInfo() const
+{
     return QString("Checking | %1 | %2 | %3 | Overdraft Fee: $%4")
-    .arg(name)
+        .arg(name)
         .arg(accountNumber)
         .arg(balance)
         .arg(overdraftFee);
 }
 
-QString Checking::getAccountNumber()const{
+QString Checking::getAccountNumber() const
+{
     return accountNumber;
 }
 
-double Checking::getOverdraftFee()const{
+double Checking::getOverdraftFee() const
+{
     return overdraftFee;
 }
 
-QString Checking::getName() const {
+QString Checking::getName() const
+{
     return name;
 }
 
-double Checking::getBalance() const{
+double Checking::getBalance() const
+{
     return balance;
 }
-void Checking::setBalance(double newBalance) {
+void Checking::setBalance(double newBalance)
+{
     balance = newBalance;
 }

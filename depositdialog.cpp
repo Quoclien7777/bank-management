@@ -1,14 +1,15 @@
 #include "depositdialog.h"
-#include "ui_depositdialog.h"
-#include <QMessageBox>
 #include <QDebug>
-#include<QString>
-DepositDialog::DepositDialog(BankManagement* bank, QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::DepositDialog),
-    bank(bank)
+#include <QMessageBox>
+#include <QString>
+#include "ui_depositdialog.h"
+DepositDialog::DepositDialog(BankManagement *bank, QWidget *parent)
+    : QDialog(parent)
+    , ui(new Ui::DepositDialog)
+    , bank(bank)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Nạp tiền");
 }
 
 DepositDialog::~DepositDialog()
@@ -26,7 +27,7 @@ void DepositDialog::on_pushButtonDeposit_clicked()
         return;
     }
 
-    Account* acc = bank->findAccountByNumber(accNum); // cần thêm hàm này
+    Account *acc = bank->findAccountByNumber(accNum); // cần thêm hàm này
 
     if (!acc) {
         QMessageBox::warning(this, "Không tìm thấy", "Không có tài khoản với số này.");
@@ -34,10 +35,11 @@ void DepositDialog::on_pushButtonDeposit_clicked()
     }
 
     double newBalance = acc->getBalance() + amount;
-    qDebug()<< typeid(acc->getBalance()).name();
-    acc->setBalance(newBalance);  // cần thêm setBalance() trong lớp Account
+    qDebug() << typeid(acc->getBalance()).name();
+    acc->setBalance(newBalance); // cần thêm setBalance() trong lớp Account
 
-    QMessageBox::information(this, "Thành công",
+    QMessageBox::information(this,
+                             "Thành công",
                              QString("Đã nạp %1 vào tài khoản %2").arg(amount).arg(accNum));
     this->accept();
 }

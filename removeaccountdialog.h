@@ -13,7 +13,7 @@ class RemoveAccountDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit RemoveAccountDialog(BankManagement* bank, QWidget *parent = nullptr);
+    explicit RemoveAccountDialog(BankManagement *bank, QWidget *parent = nullptr);
     ~RemoveAccountDialog();
 
 private slots:
@@ -21,7 +21,7 @@ private slots:
 
 private:
     Ui::RemoveAccountDialog *ui;
-    BankManagement* bankRef;
+    BankManagement *bankRef;
 };
 
 #endif // REMOVEACCOUNTDIALOG_H

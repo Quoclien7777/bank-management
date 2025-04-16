@@ -1,14 +1,15 @@
 #include "withdrawdialog.h"
-#include "ui_withdrawdialog.h"
-#include "checking.h"
 #include <QMessageBox>
+#include "checking.h"
+#include "ui_withdrawdialog.h"
 
-WithdrawDialog::WithdrawDialog(BankManagement* bank, QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::WithdrawDialog),
-    bank(bank)
+WithdrawDialog::WithdrawDialog(BankManagement *bank, QWidget *parent)
+    : QDialog(parent)
+    , ui(new Ui::WithdrawDialog)
+    , bank(bank)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Rút tiền");
 }
 
 WithdrawDialog::~WithdrawDialog()
@@ -26,7 +27,7 @@ void WithdrawDialog::on_pushButtonWithdraw_clicked()
         return;
     }
 
-    Account* acc = bank->findAccountByNumber(accNum);
+    Account *acc = bank->findAccountByNumber(accNum);
 
     if (!acc) {
         QMessageBox::warning(this, "Không tìm thấy", "Không có tài khoản với số này.");
@@ -36,7 +37,7 @@ void WithdrawDialog::on_pushButtonWithdraw_clicked()
     double currentBalance = acc->getBalance();
 
     if (acc->getType() == "Checking") {
-        Checking* checkAcc = dynamic_cast<Checking*>(acc);
+        Checking *checkAcc = dynamic_cast<Checking *>(acc);
         if (amount > currentBalance + checkAcc->getOverdraftFee()) {
             QMessageBox::warning(this, "Lỗi", "Vượt quá hạn mức cho phép!");
             return;
@@ -49,7 +50,8 @@ void WithdrawDialog::on_pushButtonWithdraw_clicked()
     }
 
     acc->setBalance(currentBalance - amount);
-    QMessageBox::information(this, "Thành công",
+    QMessageBox::information(this,
+                             "Thành công",
                              QString("Đã rút %1 từ tài khoản %2").arg(amount).arg(accNum));
     this->accept();
 }

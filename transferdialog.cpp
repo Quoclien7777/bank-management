@@ -1,14 +1,15 @@
 #include "transferdialog.h"
-#include "ui_transferdialog.h"
-#include "checking.h"
 #include <QMessageBox>
+#include "checking.h"
+#include "ui_transferdialog.h"
 
-TransferDialog::TransferDialog(BankManagement* bank, QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::TransferDialog),
-    bank(bank)
+TransferDialog::TransferDialog(BankManagement *bank, QWidget *parent)
+    : QDialog(parent)
+    , ui(new Ui::TransferDialog)
+    , bank(bank)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Chuyển khoản");
 }
 
 TransferDialog::~TransferDialog()
@@ -27,8 +28,8 @@ void TransferDialog::on_pushButtonTransfer_clicked()
         return;
     }
 
-    Account* fromAcc = bank->findAccountByNumber(fromAccNum);
-    Account* toAcc = bank->findAccountByNumber(toAccNum);
+    Account *fromAcc = bank->findAccountByNumber(fromAccNum);
+    Account *toAcc = bank->findAccountByNumber(toAccNum);
 
     if (!fromAcc || !toAcc) {
         QMessageBox::warning(this, "Không tìm thấy", "Một trong hai tài khoản không tồn tại.");
@@ -37,7 +38,7 @@ void TransferDialog::on_pushButtonTransfer_clicked()
 
     double totalDeduct = amount;
     if (fromAcc->getType() == "Checking") {
-        Checking* checkAcc = dynamic_cast<Checking*>(fromAcc);
+        Checking *checkAcc = dynamic_cast<Checking *>(fromAcc);
         totalDeduct += checkAcc->getOverdraftFee();
     }
 
@@ -49,7 +50,8 @@ void TransferDialog::on_pushButtonTransfer_clicked()
     fromAcc->setBalance(fromAcc->getBalance() - totalDeduct);
     toAcc->setBalance(toAcc->getBalance() + amount);
 
-    QMessageBox::information(this, "Thành công",
+    QMessageBox::information(this,
+                             "Thành công",
                              QString("Đã chuyển %1 từ %2 sang %3")
                                  .arg(amount)
                                  .arg(fromAccNum)

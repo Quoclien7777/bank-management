@@ -27,56 +27,56 @@
      <item>
       <widget class="QPushButton" name="addAccount">
        <property name="text">
-        <string>Add account</string>
+        <string>Thêm tài khoản mới</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="removeAccount">
        <property name="text">
-        <string>Delete account by id</string>
+        <string>Xóa tài khoản</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="showAccounts">
        <property name="text">
-        <string>Show account</string>
+        <string>Liệt kê các tài khoản hiện có</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="DepositButton">
        <property name="text">
-        <string>Deposit</string>
+        <string>Nạp tiền</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushButtonWithdraw">
        <property name="text">
-        <string>Withdraw</string>
+        <string>Rút tiền</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushButtonTransfer">
        <property name="text">
-        <string>Transfer</string>
+        <string>Chuyển tiền</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="saveToCSV">
        <property name="text">
-        <string>Save to CSV</string>
+        <string>Lưu vào file CSV</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="LoadFromCSV">
        <property name="text">
-        <string>Load from CSV</string>
+        <string>Tải dữ liệu từ file CSV</string>
        </property>
       </widget>
      </item>

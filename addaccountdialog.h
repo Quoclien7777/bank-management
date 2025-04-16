@@ -17,7 +17,7 @@ public:
     ~AddAccountDialog();
 
 signals:
-    void accountCreated(Account* acc);
+    void accountCreated(Account *acc);
 
 private slots:
     void on_buttonBox_accepted();

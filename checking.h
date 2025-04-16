@@ -3,7 +3,8 @@
 
 #include "account.h"
 
-class Checking : public Account {
+class Checking : public Account
+{
 private:
     double overdraftFee;
 
@@ -16,7 +17,6 @@ public:
     double getBalance() const override;
     double getOverdraftFee() const;
     void setBalance(double newBalance) override;
-
 };
 
 #endif // CHECKING_H
