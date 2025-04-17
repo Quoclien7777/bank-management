@@ -49,7 +49,7 @@ void TransferDialog::on_pushButtonTransfer_clicked()
 
     fromAcc->setBalance(fromAcc->getBalance() - totalDeduct);
     toAcc->setBalance(toAcc->getBalance() + amount);
-
+    bank->addTransaction(fromAcc->getAccountNumber(), toAcc->getAccountNumber(), amount);
     QMessageBox::information(this,
                              "Thành công",
                              QString("Đã chuyển %1 từ %2 sang %3")

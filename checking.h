@@ -17,6 +17,7 @@ public:
     double getBalance() const override;
     double getOverdraftFee() const;
     void setBalance(double newBalance) override;
+    void setName(const QString& newName) override;
 };
 
 #endif // CHECKING_H

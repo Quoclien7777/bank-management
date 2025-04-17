@@ -42,3 +42,6 @@ void Saving::setBalance(double newBalance)
 {
     balance = newBalance;
 }
+void Saving::setName(const QString& newName) {
+    name = newName;
+}

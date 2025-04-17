@@ -3,12 +3,14 @@
 #include <QTextStream>
 #include <checking.h>
 #include <saving.h>
+#include <QString>
+#include <QDateTime>
 void BankManagement::addAccount(Account *acc)
 {
     accounts.push_back(acc);
 }
 
-const std::vector<Account *> &BankManagement::getAccounts() const
+std::vector<Account *> &BankManagement::getAccounts()
 {
     return accounts;
 }
@@ -61,6 +63,8 @@ bool BankManagement::saveToCSV(const QString &filePath)
     return true;
 }
 
+
+
 Account *BankManagement::findAccountByNumber(const QString &number)
 {
     for (Account *acc : accounts) {
@@ -69,4 +73,15 @@ Account *BankManagement::findAccountByNumber(const QString &number)
         }
     }
     return nullptr;
+}
+
+std::vector<Transaction>& BankManagement::getTransactions()
+{
+    return transactions;
+}
+
+void BankManagement::addTransaction(const QString& from, const QString& to, double amount)
+{
+    QString timeStr = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
+    transactions.push_back(Transaction(from, to, amount, timeStr));
 }

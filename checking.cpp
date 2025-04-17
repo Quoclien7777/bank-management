@@ -42,3 +42,6 @@ void Checking::setBalance(double newBalance)
 {
     balance = newBalance;
 }
+void Checking::setName(const QString& newName) {
+    name = newName;
+}

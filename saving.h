@@ -17,6 +17,7 @@ public:
     double getBalance() const override;
     double getInterestRate() const;
     void setBalance(double newBalance) override;
+    void setName(const QString& newName) override;
 };
 
 #endif // SAVING_H

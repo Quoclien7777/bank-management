@@ -17,6 +17,7 @@ public:
     virtual QString getName() const = 0;
     virtual double getBalance() const = 0;
     virtual void setBalance(double newBalance) = 0;
+    virtual void setName(const QString& newName) = 0;
     virtual ~Account();
 };
 

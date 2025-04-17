@@ -14,11 +14,15 @@ SOURCES += \
     bankmanagement.cpp \
     checking.cpp \
     depositdialog.cpp \
+    editdialog.cpp \
     main.cpp \
     mainwindow.cpp \
     removeaccountdialog.cpp \
     saving.cpp \
     showaccountdialog.cpp \
+    sortdialog.cpp \
+    transaction.cpp \
+    transactionhistorydialog.cpp \
     transferdialog.cpp \
     withdrawdialog.cpp
 
@@ -28,19 +32,26 @@ HEADERS += \
     bankmanagement.h \
     checking.h \
     depositdialog.h \
+    editdialog.h \
     mainwindow.h \
     removeaccountdialog.h \
     saving.h \
     showaccountdialog.h \
+    sortdialog.h \
+    transaction.h \
+    transactionhistorydialog.h \
     transferdialog.h \
     withdrawdialog.h
 
 FORMS += \
     addaccountdialog.ui \
     depositdialog.ui \
+    editdialog.ui \
     mainwindow.ui \
     removeaccountdialog.ui \
     showaccountdialog.ui \
+    sortdialog.ui \
+    transactionhistorydialog.ui \
     transferdialog.ui \
     withdrawdialog.ui
 

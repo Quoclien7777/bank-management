@@ -12,6 +12,9 @@
 #include "withdrawdialog.h"
 #include <checking.h>
 #include <saving.h>
+#include <sortdialog.h>
+#include <transactionhistorydialog.h>
+#include <editdialog.h>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -146,3 +149,27 @@ void MainWindow::on_pushButtonTransfer_clicked()
     TransferDialog dialog(&bank, this);
     dialog.exec();
 }
+
+
+
+
+void MainWindow::on_pushButtonSort_clicked()
+{
+    SortDialog dialog(&bank, this);
+    dialog.exec();
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    TransactionHistoryDialog dialog(&bank, this);
+    dialog.exec();
+}
+
+
+void MainWindow::on_pushButtonEditAccount_clicked()
+{
+    EditDialog dialog(&bank, this);
+    dialog.exec();
+}
+

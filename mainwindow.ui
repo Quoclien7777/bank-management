@@ -39,9 +39,23 @@
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="pushButtonEditAccount">
+       <property name="text">
+        <string>Chỉnh sửa tài khoản theo id </string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="showAccounts">
        <property name="text">
         <string>Liệt kê các tài khoản hiện có</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButtonSort">
+       <property name="text">
+        <string>Sắp xếp tài khoản</string>
        </property>
       </widget>
      </item>
@@ -56,6 +70,13 @@
       <widget class="QPushButton" name="pushButtonWithdraw">
        <property name="text">
         <string>Rút tiền</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Kiểm tra lịch sử giao dịch của 1 tài khoản nhất định</string>
        </property>
       </widget>
      </item>

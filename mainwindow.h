@@ -36,6 +36,13 @@ private slots:
 
     void on_pushButtonTransfer_clicked();
 
+    void on_pushButtonSort_clicked();
+
+
+    void on_pushButton_clicked();
+
+    void on_pushButtonEditAccount_clicked();
+
 private:
     Ui::MainWindow *ui;
     BankManagement bank;
